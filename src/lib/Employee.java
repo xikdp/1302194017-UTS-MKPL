@@ -7,14 +7,10 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Employee {
-
-	private String employeeId;
-	private String firstName;
-	private String lastName;
-	private String idNumber;
-	private String address;
+public class Employee extends dataPribadi{
 	
+	private dataPribadi employee;
+
 	//mengganti tipe data integer variable tahun,bulan,dan hari menjadi tipe data Date
 	private Date dateJoined;
 	private int monthWorkingInYear;
@@ -34,12 +30,16 @@ public class Employee {
 	private List<String> childNames;
 	private List<String> childIdNumbers;
 	
+	//Large Class = membuat class dataPribadi, berfungsi untuk mengurangi jumlah method dan jumlah atribut
 	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, Date dateJoined, boolean isForeigner, String gender) {
-		this.employeeId = employeeId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.idNumber = idNumber;
-		this.address = address;
+		employee = new dataPribadi();
+
+		employee.setFirstName(firstName);
+		employee.setLastName(lastName);
+		employee.setEmployeeId(employeeId);
+		employee.setIdNumber(idNumber);
+		employee.setAddress(address);
+
 		this.dateJoined = dateJoined;
 		this.isForeigner = isForeigner;
 		this.gender = gender;
