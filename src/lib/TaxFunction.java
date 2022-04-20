@@ -13,15 +13,10 @@ public class TaxFunction {
 	 * Jika pegawai sudah memiliki anak maka penghasilan tidak kena pajaknya ditambah sebesar Rp 4.500.000 per anak sampai anak ketiga.
 	 * 
 	 */
-	
-	
+
+	 //Long Method - Membagi method yang memiliki lebih dari satu tujuan akhir menjadi dua class
 	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
-		
 		int tax = 0;
-		
-		if (numberOfMonthWorking > 12) {
-			System.err.println("More than 12 month working per year");
-		}
 		
 		if (numberOfChildren > 3) {
 			numberOfChildren = 3;
@@ -33,12 +28,20 @@ public class TaxFunction {
 			tax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - 54000000));
 		}
 		
+		InfoMonthWorking(numberOfMonthWorking);
+
 		if (tax < 0) {
 			return 0;
 		}else {
 			return tax;
 		}
-			 
+ 
+	}
+
+	private static void InfoMonthWorking(int numberOfMonthWorking) {
+		if (numberOfMonthWorking > 12) {
+			System.err.println("More than 12 month working per year");
+		}
 	}
 	
 }
