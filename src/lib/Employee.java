@@ -31,15 +31,10 @@ public class Employee extends dataPribadi{
 	private List<String> childIdNumbers;
 	
 	//Large Class = membuat class dataPribadi, berfungsi untuk mengurangi jumlah method dan jumlah atribut
-	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, Date dateJoined, boolean isForeigner, String gender) {
-		employee = new dataPribadi();
 
-		employee.setFirstName(firstName);
-		employee.setLastName(lastName);
-		employee.setEmployeeId(employeeId);
-		employee.setIdNumber(idNumber);
-		employee.setAddress(address);
-
+	//Long Parameter = mengurangi parameter yang terlalu panjang
+	public Employee(dataPribadi employee, Date dateJoined, boolean isForeigner, String gender) {
+		this.employee = employee;
 		this.dateJoined = dateJoined;
 		this.isForeigner = isForeigner;
 		this.gender = gender;
